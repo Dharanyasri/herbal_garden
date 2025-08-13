@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Plant } from "@/data/plants";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Plant3D } from "@/components/Plant3D";
 import { 
   Leaf, 
   MapPin, 
@@ -10,7 +13,9 @@ import {
   Droplets, 
   Sun, 
   Mountain,
-  ArrowLeft 
+  ArrowLeft,
+  Box,
+  Image as ImageIcon
 } from "lucide-react";
 
 interface PlantDetailProps {
@@ -19,6 +24,7 @@ interface PlantDetailProps {
 }
 
 export const PlantDetail = ({ plant, onBack }: PlantDetailProps) => {
+  const [activeView, setActiveView] = useState<"image" | "3d">("3d");
   return (
     <div className="animate-fade-in">
       <Button 
@@ -31,14 +37,36 @@ export const PlantDetail = ({ plant, onBack }: PlantDetailProps) => {
       </Button>
 
       <div className="grid lg:grid-cols-3 gap-8">
-        {/* Plant Image and Basic Info */}
+        {/* Plant Visualization and Basic Info */}
         <div className="lg:col-span-1">
           <Card className="herb-card">
-            <div className="aspect-square bg-herb-light relative overflow-hidden rounded-t-lg">
-              <div className="absolute inset-0 bg-gradient-botanical opacity-50" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Leaf className="w-24 h-24 text-herb-primary floating-animation" />
-              </div>
+            {/* View Toggle */}
+            <div className="p-4 pb-0">
+              <Tabs value={activeView} onValueChange={(value) => setActiveView(value as "image" | "3d")}>
+                <TabsList className="grid w-full grid-cols-2">
+                  <TabsTrigger value="3d" className="flex items-center gap-2">
+                    <Box className="w-4 h-4" />
+                    3D View
+                  </TabsTrigger>
+                  <TabsTrigger value="image" className="flex items-center gap-2">
+                    <ImageIcon className="w-4 h-4" />
+                    Traditional
+                  </TabsTrigger>
+                </TabsList>
+                
+                <TabsContent value="3d" className="mt-4">
+                  <Plant3D plant={plant} />
+                </TabsContent>
+                
+                <TabsContent value="image" className="mt-4">
+                  <div className="aspect-square bg-herb-light relative overflow-hidden rounded-lg">
+                    <div className="absolute inset-0 bg-gradient-botanical opacity-50" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <Leaf className="w-24 h-24 text-herb-primary floating-animation" />
+                    </div>
+                  </div>
+                </TabsContent>
+              </Tabs>
             </div>
             
             <CardHeader>
