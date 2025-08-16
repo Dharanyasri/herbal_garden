@@ -1,42 +1,24 @@
 #root {
-  max-width: 1280px;
+  max-width: 1440px; /* Increased max-width for a more spacious feel */
   margin: 0 auto;
-  padding: 2rem;
+  padding: 3rem; /* Larger padding for more breathing room */
   text-align: center;
+  background: var(--card); /* Use the card color for the root background */
+  border-radius: var(--radius); /* Apply the global border radius */
+  box-shadow: var(--shadow-card); /* Add a soft shadow */
+  position: relative;
+  overflow: hidden;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+#root::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill="%23d8e8d8" fill-opacity="0.1"><circle cx="25" cy="25" r="10"/><circle cx="75" cy="75" r="10"/><circle cx="75" cy="25" r="5"/><circle cx="25" cy="75" r="5"/></g></svg>');
+  background-size: 50px;
+  pointer-events: none; /* Allows clicks to pass through */
+  opacity: 0.6;
 }

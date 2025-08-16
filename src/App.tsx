@@ -5,6 +5,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Favorites from "./pages/Favorites";
+import PlantGuide from "./pages/PlantGuide";
+import Quiz from "./pages/Quiz";
+import Traditions from "./pages/Traditions";
+import Preparations from "./pages/Preparations";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +21,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/guide" element={<PlantGuide />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/traditions" element={<Traditions />} />
+          <Route path="/preparations" element={<Preparations />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

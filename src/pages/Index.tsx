@@ -10,6 +10,14 @@ const Index = () => {
   const [selectedPlant, setSelectedPlant] = useState<Plant | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedSystem, setSelectedSystem] = useState("All Systems");
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [comparisonList, setComparisonList] = useState<Plant[]>([]);
+
+  const addToComparison = (plant: Plant) => {
+    if (comparisonList.length < 3 && !comparisonList.find(p => p.id === plant.id)) {
+      setComparisonList([...comparisonList, plant]);
+    }
+  };
 
   const filteredPlants = useMemo(() => {
     return plants.filter((plant) => {
