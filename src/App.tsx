@@ -10,6 +10,7 @@ import PlantGuide from "./pages/PlantGuide";
 import Quiz from "./pages/Quiz";
 import Traditions from "./pages/Traditions";
 import Preparations from "./pages/Preparations";
+import { Navbar } from './components/Navbar';
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/favorites" element={<Favorites />} />

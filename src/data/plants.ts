@@ -37,7 +37,7 @@ export const plants: Plant[] = [
     parts: ["Leaves", "Seeds", "Roots"],
     preparation: ["Fresh juice", "Dried powder", "Tea/Decoction", "Essential oil"],
     precautions: ["May lower blood sugar", "Avoid during pregnancy", "Can interact with blood thinners"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Tulsi.png",
     region: "Indian subcontinent",
     growingConditions: {
       climate: "Tropical and subtropical",
@@ -63,7 +63,7 @@ export const plants: Plant[] = [
     parts: ["Roots", "Leaves", "Berries"],
     preparation: ["Root powder", "Capsules", "Milk decoction", "Herbal tea"],
     precautions: ["Avoid during pregnancy", "May interact with thyroid medications", "Can cause drowsiness"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Ashwagandha.jpg",
     region: "India, Middle East, Africa",
     growingConditions: {
       climate: "Dry subtropical regions",
@@ -89,7 +89,7 @@ export const plants: Plant[] = [
     parts: ["Rhizome"],
     preparation: ["Fresh paste", "Dried powder", "Milk decoction", "Oil extract"],
     precautions: ["May increase bleeding risk", "Can worsen gallstones", "Avoid high doses during pregnancy"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Turmeric.png",
     region: "Southeast Asia",
     growingConditions: {
       climate: "Warm, humid tropical climate",
@@ -115,7 +115,7 @@ export const plants: Plant[] = [
     parts: ["Leaves", "Bark", "Seeds", "Oil"],
     preparation: ["Leaf paste", "Neem oil", "Bark decoction", "Leaf powder"],
     precautions: ["Can be toxic in large doses", "Avoid during pregnancy", "May lower fertility"],
-    image: "/api/placeholder/400/300",
+    image: "images/neem.jpg",
     region: "Indian subcontinent",
     growingConditions: {
       climate: "Tropical and semi-arid regions",
@@ -141,7 +141,7 @@ export const plants: Plant[] = [
     parts: ["Whole plant", "Leaves"],
     preparation: ["Fresh juice", "Dried powder", "Capsules", "Herbal tea"],
     precautions: ["May cause digestive upset", "Can interact with thyroid medications", "Use under guidance"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Brahmi.jpg",
     region: "Wetlands of India, Australia, Europe",
     growingConditions: {
       climate: "Tropical and subtropical wetlands",
@@ -167,7 +167,7 @@ export const plants: Plant[] = [
     parts: ["Fruit", "Seeds", "Leaves"],
     preparation: ["Fresh juice", "Dried powder", "Pickles", "Oil infusion"],
     precautions: ["May cause acidity in some people", "Can interact with blood thinners", "Excessive use may cause diarrhea"],
-    image: "/api/placeholder/400/300",
+    image: "/images/amla.jpg",
     region: "Indian subcontinent, Southeast Asia",
     growingConditions: {
       climate: "Tropical and subtropical",
@@ -193,7 +193,7 @@ export const plants: Plant[] = [
     parts: ["Rhizome", "Fresh root"],
     preparation: ["Fresh juice", "Dried powder", "Tea", "Oil extract"],
     precautions: ["May interact with blood thinners", "Avoid high doses during pregnancy", "Can cause heartburn"],
-    image: "/api/placeholder/400/300",
+    image: "/images/ginger.jpg",
     region: "Southeast Asia, India",
     growingConditions: {
       climate: "Warm, humid tropical climate",
@@ -219,7 +219,7 @@ export const plants: Plant[] = [
     parts: ["Seeds", "Pods"],
     preparation: ["Whole pods", "Ground seeds", "Tea", "Essential oil"],
     precautions: ["Generally safe", "May lower blood pressure", "Use in moderation"],
-    image: "/api/placeholder/400/300",
+    image: "/images/cardamom.jpg",
     region: "Western Ghats, India",
     growingConditions: {
       climate: "Cool, humid mountain climate",
@@ -245,7 +245,7 @@ export const plants: Plant[] = [
     parts: ["Inner bark", "Leaves"],
     preparation: ["Bark powder", "Essential oil", "Tea", "Bark strips"],
     precautions: ["May interact with diabetes medications", "Avoid high doses", "Can cause liver issues in excess"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Cinnamon.jpg",
     region: "Sri Lanka, Southern India",
     growingConditions: {
       climate: "Tropical monsoon climate",
@@ -271,7 +271,7 @@ export const plants: Plant[] = [
     parts: ["Seeds", "Leaves"],
     preparation: ["Seed powder", "Soaked seeds", "Leaf curry", "Sprouted seeds"],
     precautions: ["May cause hypoglycemia", "Avoid during pregnancy", "Can cause allergic reactions"],
-    image: "/api/placeholder/400/300",
+    image: "/images/fenugreek.jpg",
     region: "Mediterranean, Middle East",
     growingConditions: {
       climate: "Cool, dry climate",
@@ -297,7 +297,7 @@ export const plants: Plant[] = [
     parts: ["Roots", "Rhizome"],
     preparation: ["Root powder", "Decoction", "Extract", "Chewing sticks"],
     precautions: ["May raise blood pressure", "Avoid long-term use", "Can affect potassium levels"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Licorice.jpg",
     region: "Mediterranean, Central Asia",
     growingConditions: {
       climate: "Temperate to subtropical",
@@ -323,7 +323,7 @@ export const plants: Plant[] = [
     parts: ["Gel", "Latex", "Whole leaf"],
     preparation: ["Fresh gel", "Juice", "Dried extract", "Topical application"],
     precautions: ["Latex can be toxic", "May cause diarrhea", "Avoid during pregnancy"],
-    image: "/api/placeholder/400/300",
+    image: "/images/aloevera.jpg",
     region: "Arabian Peninsula, Africa",
     growingConditions: {
       climate: "Arid to semi-arid",
@@ -349,7 +349,7 @@ export const plants: Plant[] = [
     parts: ["Roots"],
     preparation: ["Dried root", "Extract", "Tea", "Capsules"],
     precautions: ["May cause insomnia", "Can interact with blood thinners", "Avoid with high blood pressure"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Ginseng.jpg",
     region: "Northeast Asia",
     growingConditions: {
       climate: "Cool temperate climate",
@@ -375,7 +375,7 @@ export const plants: Plant[] = [
     parts: ["Leaves"],
     preparation: ["Leaf extract", "Dried leaves", "Standardized extract", "Tea"],
     precautions: ["May increase bleeding risk", "Can cause headaches", "Avoid with seizure disorders"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Ginkgo.jpg",
     region: "China",
     growingConditions: {
       climate: "Temperate climate",
@@ -401,7 +401,7 @@ export const plants: Plant[] = [
     parts: ["Roots", "Leaves", "Flowers"],
     preparation: ["Root extract", "Tea", "Tincture", "Capsules"],
     precautions: ["May cause allergic reactions", "Avoid with autoimmune conditions", "Can interact with immunosuppressants"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Echinacea.jpg",
     region: "North America",
     growingConditions: {
       climate: "Temperate climate",
@@ -427,7 +427,7 @@ export const plants: Plant[] = [
     parts: ["Flowers", "Essential oil"],
     preparation: ["Essential oil", "Dried flowers", "Tea", "Aromatherapy"],
     precautions: ["Generally safe", "May cause skin irritation", "Avoid ingesting large amounts"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Lavender.jpg",
     region: "Mediterranean",
     growingConditions: {
       climate: "Mediterranean climate",
@@ -453,7 +453,7 @@ export const plants: Plant[] = [
     parts: ["Flowers"],
     preparation: ["Tea", "Essential oil", "Dried flowers", "Topical preparations"],
     precautions: ["May cause allergic reactions", "Avoid with ragweed allergy", "Generally very safe"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Chamomile.webp",
     region: "Europe, Asia",
     growingConditions: {
       climate: "Temperate climate",
@@ -479,7 +479,7 @@ export const plants: Plant[] = [
     parts: ["Leaves", "Essential oil"],
     preparation: ["Fresh leaves", "Tea", "Essential oil", "Dried leaves"],
     precautions: ["May worsen GERD", "Can interfere with iron absorption", "Generally safe"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Peppermint.jpg",
     region: "Europe, North America",
     growingConditions: {
       climate: "Temperate climate",
@@ -505,7 +505,7 @@ export const plants: Plant[] = [
     parts: ["Leaves", "Seeds", "Whole plant"],
     preparation: ["Fresh leaves", "Tea", "Extract", "Essential oil"],
     precautions: ["May lower blood sugar", "Can interact with medications", "Generally safe"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Holybasil.jpg",
     region: "Indian subcontinent",
     growingConditions: {
       climate: "Tropical and subtropical",
@@ -531,7 +531,7 @@ export const plants: Plant[] = [
     parts: ["Seeds", "Leaves", "Bulb"],
     preparation: ["Seed tea", "Fresh bulb", "Essential oil", "Chewing seeds"],
     precautions: ["May interact with blood thinners", "Estrogenic effects", "Generally safe"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Fennel.webp",
     region: "Mediterranean",
     growingConditions: {
       climate: "Mediterranean to temperate",
@@ -557,7 +557,7 @@ export const plants: Plant[] = [
     parts: ["Leaves", "Essential oil"],
     preparation: ["Fresh leaves", "Essential oil", "Tea", "Dried herb"],
     precautions: ["May interact with blood thinners", "Can cause allergic reactions", "Generally safe"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Rosemary.webp",
     region: "Mediterranean",
     growingConditions: {
       climate: "Mediterranean climate",
@@ -583,7 +583,7 @@ export const plants: Plant[] = [
     parts: ["Leaves", "Essential oil"],
     preparation: ["Fresh leaves", "Essential oil", "Tea", "Dried herb"],
     precautions: ["May interact with blood thinners", "Can cause stomach upset", "Generally safe"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Oregano.jpg",
     region: "Mediterranean, Europe",
     growingConditions: {
       climate: "Mediterranean to temperate",
@@ -609,7 +609,7 @@ export const plants: Plant[] = [
     parts: ["Leaves", "Essential oil"],
     preparation: ["Fresh leaves", "Essential oil", "Tea", "Dried herb"],
     precautions: ["May interact with blood thinners", "Can cause allergic reactions", "Generally safe"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Thyme.jpg",
     region: "Mediterranean",
     growingConditions: {
       climate: "Mediterranean climate",
@@ -635,7 +635,7 @@ export const plants: Plant[] = [
     parts: ["Leaves"],
     preparation: ["Fresh leaves", "Tea", "Essential oil", "Dried herb"],
     precautions: ["May interact with diabetes medications", "Avoid during pregnancy", "Generally safe in culinary amounts"],
-    image: "/api/placeholder/400/300",
+    image: "/images/Sage.jpg",
     region: "Mediterranean",
     growingConditions: {
       climate: "Mediterranean climate",
