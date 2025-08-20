@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { Leaf, Heart, Book, Brain, FlaskConical, Sprout } from 'lucide-react';
 import { useState } from 'react';
+import { UserProfile } from './UserProfile';
+import { ChatbotToggle } from './ChatbotToggle';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,6 +49,7 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-6">
             <NavLink
               to="/guide"
+              to="/guide"
               className={({ isActive }) => `flex items-center px-4 py-2 rounded-lg transition-colors duration-200 ${isActive ? 'bg-green-100 text-green-700' : 'text-gray-600 hover:bg-gray-100'}`}
             >
               <Book className="h-5 w-5 mr-2" />
@@ -80,6 +83,10 @@ export const Navbar = () => {
               <Heart className="h-5 w-5 mr-2" />
               Favorites
             </NavLink>
+            
+            {/* User Profile */}
+            <UserProfile />
+            <ChatbotToggle />
           </div>
         </div>
 
@@ -126,6 +133,7 @@ export const Navbar = () => {
               <Heart className="h-5 w-5 mr-2" />
               Favorites
             </NavLink>
+            <UserProfile />
           </div>
         </div>
       </div>
