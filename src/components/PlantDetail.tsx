@@ -283,14 +283,22 @@ export const PlantDetail = ({ plant, onBack }: PlantDetailProps) => {
               <CardContent>
                 <div className="space-y-2">
                   {plant.preparation.map((method) => (
-                    <div key={method} className="flex items-center text-sm">
-                      <div className="w-2 h-2 bg-herb-accent rounded-full mr-3 flex-shrink-0" />
-                      {method}
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+            <div className="text-center space-y-3 p-4 bg-gradient-to-r from-emerald-50 to-green-50 rounded-lg border border-emerald-200">
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-2xl">🌿</span>
+                <p className="text-lg text-emerald-700 font-semibold">
+                  Realistic 3D Plant Model
+                </p>
+              </div>
+              <p className="text-sm text-emerald-600">
+                Scientifically accurate • Interactive exploration • Detailed botanical features
+              </p>
+              <div className="flex justify-center gap-4 text-xs text-emerald-500">
+                <span>🖱️ Drag to rotate</span>
+                <span>🔍 Scroll to zoom</span>
+                <span>⚡ Auto-rotating</span>
+              </div>
+            </div>
           </div>
 
           {/* Growing Conditions */}

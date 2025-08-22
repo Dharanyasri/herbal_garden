@@ -172,5 +172,36 @@ All colors MUST be HSL for botanical theme.
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
   }
+
+  /* Enhanced 3D model animations */
+  .model-glow {
+    box-shadow: 
+      0 0 20px rgba(76, 175, 80, 0.3),
+      0 0 40px rgba(76, 175, 80, 0.2),
+      0 0 60px rgba(76, 175, 80, 0.1);
+  }
+
+  .botanical-shimmer {
+    background: linear-gradient(
+      45deg,
+      rgba(76, 175, 80, 0.1) 0%,
+      rgba(129, 199, 132, 0.2) 50%,
+      rgba(76, 175, 80, 0.1) 100%
+    );
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  /* 3D model container enhancements */
+  .plant-3d-container {
+    background: 
+      radial-gradient(circle at 30% 20%, rgba(76, 175, 80, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(129, 199, 132, 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, #f1f8e9 0%, #e8f5e8 100%);
+  }
 }
 

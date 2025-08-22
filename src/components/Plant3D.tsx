@@ -370,7 +370,7 @@ export const Plant3D = ({ plant }: Plant3DProps) => {
   }
 
   return (
-    <div className="w-full h-96 bg-gradient-botanical rounded-lg overflow-hidden shadow-lg relative">
+    <div className="w-full h-96 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 rounded-xl overflow-hidden shadow-2xl relative border border-green-200">
       <ErrorBoundary fallback={<Plant3DFallback plant={plant} error="3D rendering failed" />}>
         <Suspense fallback={<Plant3DFallback plant={plant} />}>
           <Canvas 
@@ -378,6 +378,8 @@ export const Plant3D = ({ plant }: Plant3DProps) => {
             onCreated={({ gl }) => {
               try {
                 gl.setSize(gl.domElement.clientWidth, gl.domElement.clientHeight);
+                gl.shadowMap.enabled = true;
+                gl.shadowMap.type = 2; // PCFSoftShadowMap
               } catch (error) {
                 console.error('WebGL initialization error:', error);
                 setWebglSupported(false);
@@ -388,61 +390,66 @@ export const Plant3D = ({ plant }: Plant3DProps) => {
               setWebglSupported(false);
             }}
           >
-            {/* Cinematic Lighting Setup */}
-            <ambientLight intensity={0.3} color="#f0f4f8" />
+            {/* Enhanced Cinematic Lighting Setup */}
+            <ambientLight intensity={0.4} color="#f8fffe" />
             
-            {/* Key light - main illumination */}
+            {/* Key light - main illumination with shadows */}
             <directionalLight 
-              position={[8, 12, 6]} 
-              intensity={1.5} 
+              position={[10, 15, 8]} 
+              intensity={2.0} 
               color="#ffffff"
               castShadow 
-              shadow-mapSize-width={2048}
-              shadow-mapSize-height={2048}
+              shadow-mapSize-width={4096}
+              shadow-mapSize-height={4096}
+              shadow-camera-far={50}
+              shadow-camera-left={-10}
+              shadow-camera-right={10}
+              shadow-camera-top={10}
+              shadow-camera-bottom={-10}
             />
             
             {/* Fill light - softer secondary lighting */}
             <directionalLight 
-              position={[-6, 8, -4]} 
-              intensity={0.6} 
+              position={[-8, 10, -6]} 
+              intensity={0.8} 
               color="#e8f5e8"
             />
             
             {/* Rim light - dramatic edge lighting */}
             <directionalLight 
-              position={[0, 2, -8]} 
-              intensity={0.8} 
+              position={[0, 3, -10]} 
+              intensity={1.2} 
               color="#a5d6a7"
             />
             
-            {/* Interactive point lights */}
+            {/* Interactive point lights for depth */}
             <pointLight 
-              position={[0, 6, 2]} 
-              intensity={0.4} 
+              position={[0, 8, 3]} 
+              intensity={0.6} 
               color="#7cb342" 
+              distance={12}
+              decay={2}
+            />
+            <pointLight 
+              position={[4, 3, 4]} 
+              intensity={0.3} 
+              color="#ffcc02" 
               distance={8}
               decay={2}
             />
-            <pointLight 
-              position={[3, 2, 3]} 
-              intensity={0.2} 
-              color="#ffcc02" 
-              distance={5}
-              decay={2}
-            />
             
-            {/* Subtle colored accent lights */}
+            {/* Colored accent lights for atmosphere */}
             <spotLight
-              position={[4, 6, 4]}
-              angle={Math.PI / 6}
-              penumbra={0.5}
-              intensity={0.3}
+              position={[6, 8, 6]}
+              angle={Math.PI / 5}
+              penumbra={0.3}
+              intensity={0.5}
               color="#81c784"
               castShadow
             />
 
-            {/* Atmospheric Stars */}
-            <Stars radius={50} depth={50} count={100} factor={2} saturation={0} fade />
+            {/* Atmospheric particles */}
+            <Stars radius={100} depth={50} count={200} factor={3} saturation={0} fade speed={0.5} />
 
             {/* 3D Plant Model */}
             <PlantModel plant={plant} />
@@ -453,78 +460,122 @@ export const Plant3D = ({ plant }: Plant3DProps) => {
               enableZoom={true}
               enableRotate={true}
               autoRotate={true}
-              autoRotateSpeed={0.3}
-              minDistance={2}
-              maxDistance={10}
+              autoRotateSpeed={0.5}
+              minDistance={3}
+              maxDistance={12}
               enableDamping={true}
-              dampingFactor={0.05}
+              dampingFactor={0.03}
+              maxPolarAngle={Math.PI / 1.8}
+              minPolarAngle={Math.PI / 6}
             />
 
-            {/* Beautiful terrain base */}
-            {/* Main soil base */}
-            <Cylinder args={[4, 4, 0.3]} position={[0, -1.8, 0]}>
+            {/* Enhanced terrain base with realistic textures */}
+            {/* Main soil base with texture variation */}
+            <Cylinder args={[5, 5, 0.4]} position={[0, -2, 0]}>
+              <meshStandardMaterial 
+                color="#4a3c28" 
+                roughness={0.95}
+                metalness={0.02}
+              />
+            </Cylinder>
+            
+            {/* Secondary soil layer */}
+            <Cylinder args={[4.8, 4.8, 0.2]} position={[0, -1.9, 0]}>
               <meshStandardMaterial 
                 color="#5d4037" 
-                roughness={0.95}
+                roughness={0.9}
                 metalness={0.05}
               />
             </Cylinder>
             
-            {/* Grass patches */}
-            {Array.from({ length: 20 }).map((_, i) => (
+            {/* Grass patches with varied heights */}
+            {Array.from({ length: 30 }).map((_, i) => (
               <Cylinder 
                 key={`grass-${i}`}
-                args={[0.15, 0.1, 0.1]} 
+                args={[0.12 + Math.random() * 0.08, 0.08 + Math.random() * 0.05, 0.15 + Math.random() * 0.1]} 
                 position={[
-                  (Math.random() - 0.5) * 6, 
-                  -1.6, 
-                  (Math.random() - 0.5) * 6
+                  (Math.random() - 0.5) * 8, 
+                  -1.7, 
+                  (Math.random() - 0.5) * 8
                 ]}
+                rotation={[0, Math.random() * Math.PI, Math.random() * 0.2]}
               >
                 <meshStandardMaterial 
-                  color="#4caf50" 
+                  color={`hsl(${120 + Math.random() * 20}, ${60 + Math.random() * 20}%, ${40 + Math.random() * 20}%)`}
                   roughness={0.8}
                   transparent={true}
-                  opacity={0.7}
+                  opacity={0.8}
                 />
               </Cylinder>
             ))}
             
-            {/* Small rocks and pebbles */}
-            {Array.from({ length: 8 }).map((_, i) => (
+            {/* Realistic rocks and pebbles */}
+            {Array.from({ length: 12 }).map((_, i) => (
               <Sphere 
                 key={`rock-${i}`}
-                args={[0.05 + Math.random() * 0.1]} 
+                args={[0.08 + Math.random() * 0.15]} 
                 position={[
-                  (Math.random() - 0.5) * 5, 
-                  -1.6, 
-                  (Math.random() - 0.5) * 5
+                  (Math.random() - 0.5) * 7, 
+                  -1.7, 
+                  (Math.random() - 0.5) * 7
                 ]}
+                scale={[1, 0.6 + Math.random() * 0.4, 1]}
               >
                 <meshStandardMaterial 
-                  color="#616161" 
-                  roughness={0.9}
+                  color={`hsl(${30 + Math.random() * 40}, ${20 + Math.random() * 30}%, ${30 + Math.random() * 40}%)`}
+                  roughness={0.95}
                   metalness={0.1}
                 />
               </Sphere>
             ))}
             
-            {/* Subtle fog effect */}
-            <fog attach="fog" args={['#a8d5ba', 8, 15]} />
+            {/* Small wildflowers for ambiance */}
+            {Array.from({ length: 8 }).map((_, i) => (
+              <group key={`flower-${i}`} position={[
+                (Math.random() - 0.5) * 6, 
+                -1.6, 
+                (Math.random() - 0.5) * 6
+              ]}>
+                <Cylinder args={[0.01, 0.01, 0.2]}>
+                  <meshStandardMaterial color="#4caf50" />
+                </Cylinder>
+                <Sphere args={[0.03]} position={[0, 0.15, 0]}>
+                  <meshStandardMaterial 
+                    color={`hsl(${Math.random() * 360}, 70%, 60%)`}
+                    emissive={`hsl(${Math.random() * 360}, 30%, 20%)`}
+                    emissiveIntensity={0.2}
+                  />
+                </Sphere>
+              </group>
+            ))}
+            
+            {/* Enhanced atmospheric fog */}
+            <fog attach="fog" args={['#e8f5e8', 12, 25]} />
           </Canvas>
         </Suspense>
       </ErrorBoundary>
       
-      <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-2 rounded-lg text-sm backdrop-blur-sm">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-          Interactive 3D • Drag to rotate • Scroll to zoom
+      {/* Enhanced UI overlay */}
+      <div className="absolute bottom-4 left-4 bg-black/80 text-white px-4 py-3 rounded-xl text-sm backdrop-blur-md border border-white/20">
+        <div className="flex items-center gap-3">
+          <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse shadow-lg shadow-emerald-400/50"></div>
+          <div>
+            <div className="font-medium">Interactive 3D Model</div>
+            <div className="text-xs text-white/80">Drag • Scroll • Auto-rotate</div>
+          </div>
         </div>
       </div>
       
-      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg text-sm text-herb-primary font-medium">
-        🌿 {plant.name}
+      <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-4 py-2 rounded-xl text-sm text-emerald-700 font-semibold border border-emerald-200 shadow-lg">
+        <div className="flex items-center gap-2">
+          <span className="text-lg">🌿</span>
+          {plant.name}
+        </div>
       </div>
+
+      {/* Decorative corner elements */}
+      <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-emerald-200/30 to-transparent rounded-br-full"></div>
+      <div className="absolute bottom-0 right-0 w-16 h-16 bg-gradient-to-tl from-green-200/30 to-transparent rounded-tl-full"></div>
     </div>
   );
 };
