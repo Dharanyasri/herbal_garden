@@ -5,33 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MapPin, Leaf, Heart, Plus } from "lucide-react";
 
-// Import plant images
-import tulsiImage from "@/assets/Tulsi.png";
-import neemImage from "@/assets/neem.jpg";
-import turmericImage from "@/assets/Turmeric.png";
-import ashwagandhaImage from "@/assets/Ashwagandha.jpg";
-import brahmiImage from "@/assets/Brahmi.jpg";
-import amlaImage from "@/assets/amla.jpg"; 
-import gingerImage from "@/assets/ginger.jpg";
-import cardamomImage from "@/assets/cardamom.jpg";
-import fenugreekImage from "@/assets/fenugreek.jpg";
-import cinnamonImage from "@/assets/Cinnamon.jpg";
-import licoriceImage from "@/assets/Licorice.jpg";
-import ginsengImage from "@/assets/Ginseng.jpg";
-import ginkgoImage from "@/assets/Ginkgo.jpg";
-import echinaceaImage from "@/assets/Echinacea.jpg";
-import lavenderImage from "@/assets/Lavender.jpg";
-import chamomileImage from "@/assets/Chamomile.webp";
-import peppermintImage from "@/assets/Peppermint.jpg";
-import holybasilImage from "@/assets/Holybasil.jpg";
-import fennelImage from "@/assets/Fennel.webp";
-import rosemary from "@/assets/Rosemary.webp";
-import oreganoImage from "@/assets/Oregano.jpg";
-import thymeImage from "@/assets/Thyme.jpg";
-import sageImage from "@/assets/Sage.jpg";
-import aloeveraImage from "@/assets/aloevera.jpg";
-
-
 interface PlantCardProps {
   plant: Plant;
   onClick: () => void;
@@ -62,36 +35,6 @@ export const PlantCard = ({ plant, onClick, onAddToComparison }: PlantCardProps)
     onAddToComparison?.(plant);
   };
 
-  const getPlantImage = (plantId: string) => {
-    const imageMap: { [key: string]: string } = {
-      tulsi: tulsiImage,
-      neem: neemImage,
-      turmeric: turmericImage,
-      ashwagandha: ashwagandhaImage,
-      brahmi: brahmiImage,
-      amla: amlaImage,
-      ginger: gingerImage,
-      cardamom: cardamomImage,
-      fenugreek: fenugreekImage,
-      cinnamon: cinnamonImage,
-      licorice: licoriceImage,
-      ginseng: ginsengImage,
-      ginkgo: ginkgoImage,
-      echinacea: echinaceaImage,
-      lavender: lavenderImage,
-      chamomile: chamomileImage,
-      peppermint: peppermintImage,
-      'holy-basil': holybasilImage,
-      fennel: fennelImage,
-      rosemary: rosemary,
-      oregano: oreganoImage,
-      thyme: thymeImage,
-      sage: sageImage,
-      'aloe-vera': aloeveraImage,
-    };
-    return imageMap[plantId];
-  };
-
   return (
     <Card className="herb-card cursor-pointer overflow-hidden group relative" onClick={onClick}>
       {/* Action Buttons */}
@@ -118,9 +61,9 @@ export const PlantCard = ({ plant, onClick, onAddToComparison }: PlantCardProps)
 
       <CardHeader className="pb-3">
         <div className="relative h-48 w-full mb-4 overflow-hidden rounded-lg">
-          {getPlantImage(plant.id) ? (
+          {plant.image ? (
             <img 
-              src={getPlantImage(plant.id)!} 
+              src={plant.image} 
               alt={plant.name}
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />

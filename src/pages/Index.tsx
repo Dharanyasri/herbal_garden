@@ -4,7 +4,6 @@ import { PlantDetail } from "@/components/PlantDetail";
 import { SearchAndFilter } from "@/components/SearchAndFilter";
 import { plants, Plant } from "@/data/plants";
 import { Leaf, Sparkles } from "lucide-react";
-import heroImage from "@/assets/hero-garden.jpg";
 
 const Index = () => {
   const [selectedPlant, setSelectedPlant] = useState<Plant | null>(null);
@@ -55,7 +54,7 @@ const Index = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(${heroImage})`,
+            backgroundImage: `url(/images/hero-garden.jpg)`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-hero opacity-75" />
